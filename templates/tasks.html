@@ -1,0 +1,34 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome da Tarefa</th>
+                <th>Status</th>
+                <th>Próxima Execução</th>
+                <th>Última Execução</th>
+                <th>Resultado da Última Execução</th>
+                <th>Disparadores</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ task['Nome da Tarefa'] }}</td>
+                <td>{{ task['Status'] }}</td>
+                <td>{{ task['Próxima Execução'] }}</td>
+                <td>{{ task['Última Execução'] }}</td>
+                <td>{{ task['Resultado da Última Execução'] }}</td>
+                <td>{{ task['Disparadores'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        setInterval(function(){
+            location.reload();
+        }, 20000); // Recarrega a página a cada 10 segundos (10000 milissegundos)
+    </script>
+{% endblock %}
